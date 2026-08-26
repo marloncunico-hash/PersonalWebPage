@@ -20,32 +20,34 @@ HTML estático, sem framework e sem build: o que está no repositório é o que 
 ├── .nojekyll               desliga o Jekyll (evita que pastas com _ sejam ignoradas)
 ├── robots.txt
 ├── sitemap.xml
-├── assets/
-│   ├── css/style.css       toda a folha de estilo (as duas páginas usam a mesma)
-│   ├── js/main.js          menu móvel e destaque da seção atual
-│   └── img/
-│       ├── favicon.svg     ícone da aba
-│       ├── og-image.png    imagem de compartilhamento (1200×630)
-│       └── foto-marlon.jpg  <-- VOCÊ COLOCA (opcional, proporção 4:5)
-└── cv/
-    ├── cv-marlon-cunico.pdf     <-- VOCÊ COLOCA (currículo PT)
-    └── cv-marlon-cunico-en.pdf  <-- VOCÊ COLOCA (currículo EN)
+└── assets/
+    ├── css/style.css        toda a folha de estilo (as duas páginas usam a mesma)
+    ├── js/main.js           menu móvel e destaque da seção atual
+    └── img/
+        ├── favicon.svg      ícone da aba
+        ├── og-image.png     imagem de compartilhamento (1200×630, com a foto)
+        └── marlon-cunico.jpg  foto do hero (4:5)
 ```
 
 ---
 
-## Antes de publicar — 4 substituições
+## O que já está preenchido
 
-| O quê | Onde | Como está hoje |
-|---|---|---|
-| **WhatsApp** | `index.html` e `en/index.html`, seção de contato | `https://wa.me/5541999999999` — troque pelo número real: 55 + DDD + número, sem espaços nem traços |
-| **LinkedIn** | mesmas duas linhas | `https://www.linkedin.com/in/marloncunico/` — confirme se é essa mesmo a URL do seu perfil |
-| **PDFs do currículo** | pasta `cv/` | os botões apontam para `cv/cv-marlon-cunico.pdf` e `cv/cv-marlon-cunico-en.pdf`; enquanto não existirem, o clique cai no 404 |
-| **Foto** | `assets/img/foto-marlon.jpg` | basta colocar o arquivo com esse nome, na proporção 4:5 (ex.: 880×1100 px). Sem o arquivo, aparece o monograma "MC" — o site não quebra |
+| Item | Valor no site |
+|---|---|
+| Foto | `assets/img/marlon-cunico.jpg` — recorte 4:5 da foto do projeto. Para trocar, substitua o arquivo mantendo o nome e a proporção |
+| Telefone e WhatsApp | +55 41 99670-4747 — visível na seção de contato, com botão de ligar (`tel:`) e de WhatsApp (`wa.me`) |
+| E-mail | marloncunico@gmail.com |
+| LinkedIn | `linkedin.com/in/marlon-cunico-b2b38110` — endereço confirmado na auditoria de agosto |
+| Currículo PT | Google Docs — *CV_Executivo_Marlon_Cunico_PT*, aberto em modo leitura (`/preview`) |
+| Currículo EN | Google Docs — *CV_Executive_Marlon_Cunico_EN*, aberto em modo leitura (`/preview`) |
 
-Cada ponto está marcado com um comentário `<!-- TROQUE ... -->` no HTML.
+### Duas verificações antes de divulgar
 
----
+1. **Permissão dos documentos.** Abra os dois links do currículo numa janela anônima. Se aparecer "Você precisa de acesso", o headhunter verá o mesmo — no Drive, mude o compartilhamento para *Qualquer pessoa com o link · Leitor*.
+2. **Versão detalhada.** Os CVs detalhados (4 páginas, PT e EN) ficaram de fora por decisão de projeto: o site oferece só a versão executiva. Se quiser incluí-los depois, é um `<a class="btn btn--ghost">` a mais na seção de contato.
+
+> **Se preferir PDF hospedado aqui em vez do Google Docs:** crie uma pasta `cv/`, coloque os arquivos e troque as URLs do Google nos dois `index.html` (são quatro ocorrências, duas por página: hero e contato). PDF carrega mais rápido, funciona offline e não expõe sua conta do Drive.
 
 ## Publicar no GitHub Pages
 
@@ -106,6 +108,8 @@ Em [Google Search Console](https://search.google.com/search-console), adicione a
 ## Como editar depois
 
 - **Texto**: os dois `index.html` são HTML puro e comentado por seção (`<!-- ==== RESULTADOS ==== -->`). Mudou algo em português, mude o equivalente em `/en/`.
+- **Foto**: substitua `assets/img/marlon-cunico.jpg` por outra na proporção 4:5 (ex.: 640×800 px). O nome do arquivo precisa continuar igual.
+- **Imagem de compartilhamento**: `assets/img/og-image.png` (1200×630) é o card que aparece ao colar o link no LinkedIn ou no WhatsApp. Se mudar cargo ou números, vale refazer.
 - **Cores e espaçamentos**: as variáveis no topo de `assets/css/style.css` (`--navy`, `--teal`, `--surface`…). Trocar `--teal` muda o acento do site inteiro.
 - **Uma seção nova**: copie um `<section class="section">` inteiro, troque o `id` e acrescente o link correspondente no `<nav>`.
 - **Ordem das seções**: recortar e colar o bloco `<section>` inteiro. Nada depende da ordem.
@@ -118,6 +122,6 @@ O site funciona sem JavaScript (o menu móvel e o destaque do menu são o único
 
 1. Abra no celular — o menu vira botão, as colunas empilham.
 2. Cole `https://www.marloncunico.com` no LinkedIn ou no WhatsApp e veja se a imagem de compartilhamento aparece.
-3. Clique nos quatro botões de contato e no download do currículo.
+3. Clique nos cinco botões de contato e abra o currículo numa janela anônima — é assim que o headhunter vai abrir.
 4. Teste o `/en/` e o botão PT/EN nos dois sentidos.
 5. Rode o [Rich Results Test](https://search.google.com/test/rich-results) na home — os dados estruturados `Person` devem ser reconhecidos.
