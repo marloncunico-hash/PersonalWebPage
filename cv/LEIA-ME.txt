@@ -1,9 +1,0 @@
-Coloque aqui os PDFs do currículo, com estes nomes exatos:
-
-  cv-marlon-cunico.pdf      -> versão em português (botão "Baixar currículo" da home)
-  cv-marlon-cunico-en.pdf   -> versão em inglês (botão "Download CV" da página /en/)
-
-Os botões do site já apontam para esses dois caminhos. Enquanto os arquivos
-não existirem, o clique leva à página 404 — então suba os PDFs antes de divulgar o site.
-
-Dica: use o CV Executivo de 2 páginas, não o detalhado de 4.
